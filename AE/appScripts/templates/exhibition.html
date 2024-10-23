@@ -1,0 +1,46 @@
+<!-- templates/info.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE: Artificial Emotions - FotMGallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <p style="margin-left: 1%;"><span style="font-size:60px;cursor:pointer;left:0;" onclick="openNav()">&#9776; </span>
+    </p>
+    <p style="margin-left: 1.1%; margin-top: -1.5%;">MENU</p>
+    <div>
+        <img src="{{ url_for('static', filename='assets/AE_Logo.PNG') }}" alt="AE_Logo" style="width: 600px;">
+    </div>
+    <div id="AEtemp"></div>
+    <script src="{{ url_for('static', filename='js/template.js') }}"></script>
+
+    <br>
+    <br>
+
+    <h2>Mindscape - The Gallery of images generated
+        through collaborations between you and  the AE.</h2>
+
+    <div id="image-gallery">
+
+        {% for image in images | reverse %}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='imgs/' + image) }}" alt="Image {{ loop.index }}">
+            <div class="caption">
+                {% set current_in = num_of_imgs - loop.index + 1%}
+                {{json_data[current_in|string]}}
+                <!-- <p style="text-align: center; margin: 10px; width: 300px; word-wrap: break-word; padding-bottom: 10px;">
+                {{json_data[loop.index|string]}}</p> -->
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

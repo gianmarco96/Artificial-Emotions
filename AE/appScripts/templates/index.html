@@ -1,0 +1,83 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE: Artificial Emotions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <p style="margin-left: 1%;"><span style="font-size:60px;cursor:pointer;left:0;" onclick="openNav()">&#9776; </span>
+    </p>
+    <p style="margin-left: 1.1%; margin-top: -1.5%;">MENU</p>
+
+    <div>
+        <img src="{{ url_for('static', filename='assets/AE_Logo.PNG') }}" alt="AE_Logo" style="width: 600px;">
+        
+    </div>
+    <div id="AEtemp"></div>
+    <script src="{{ url_for('static', filename='js/template.js') }}"></script>
+
+    <div class="loading-container" id="loadingContainer" style="display: none;">
+        <div class="loading-logo">
+            <div class="Logo">
+                <img src="{{ url_for('static', filename='assets/load.gif') }}" style="border-radius: 20%;" alt="LoadingLogo">
+                <p id="loadingMessage" style="text-align: center;">Generating your image, please wait...</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <form action="/generate" method="post" style="margin-top: 150px;">
+        <label for="prompt" style="font-size: 30px;">How are you feeling today?</label>
+        <br>
+        <br>
+        <input type="text" id="prompt" name="prompt" required>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" id="generateButton"> GENERATE IMAGE </button>
+    </form>
+    
+    {% if image_url %}
+    <div id="resultContainer" style="display: block;">
+        <h2>Generated Image:</h2>
+        <img src="{{ image_url }}"  style="width: 1024px;" alt="Generated Image">
+        <script>
+            const loadingDiv = document.getElementById('loadingContainer');
+            loadingDiv.style.display = 'none';
+        </script>
+        <h3> Your image has been added to the gallery. If you would like the robot to draw it for you please speak to one of the humans who look after it. 
+            Keep in mind, the drawing process can take anywhere from 10 minutes to up to 4 hours, depending on the level of detail generated.
+        </h3>
+    </div>
+
+    <form action="/">
+        <button type="submit" id="goBackButton"> GENERATE AGAIN </button>
+    </form>
+    {% endif %}
+
+    <script>
+        document.getElementById("generateButton").addEventListener('click', async function () {
+            // print("button pressed");
+            document.getElementById("loadingContainer").style.display = 'block';
+        });
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>

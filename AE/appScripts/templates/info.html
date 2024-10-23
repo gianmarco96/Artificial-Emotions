@@ -1,0 +1,65 @@
+<!-- templates/info.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AE: Artificial Emotions - info</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+  <p style="margin-left: 1%;"><span style="font-size:60px;cursor:pointer;left:0;" onclick="openNav()">&#9776; </span>
+  </p>
+  <p style="margin-left: 1.1%; margin-top: -1.5%;">MENU</p>
+  <div>
+    <img src="{{ url_for('static', filename='assets/AE_Logo.PNG') }}" alt="AE_Logo" style="width: 600px;">
+  </div>
+  <div id="AEtemp" data-image-url="{{ url_for('static', filename='assets/AE_Logo.PNG') }}"></div>
+  <script src="{{ url_for('static', filename='js/template.js') }}"></script>
+  <br>
+  <br>
+  <h2 style="font-size: 30px;">
+    The ongoing AE: Artificial Emotions project sets out to develop a robot capable of creating drawings based on human
+    emotions. The project envisages the harnessing of human self-expression and the visual language communication
+    capabilities of robots. The primary purpose of this effort is to explore the potential benefits of a human/robot
+    creative collaboration on mental health and well being.
+  </h2>
+  <br>
+  <br>
+
+  <p style="font-weight: bold;">Background: The Benefits of Human Self-Expression through Drawing. </p>
+
+  <p>
+    Drawing is a fundamental form of human expression with deep-rooted psychological benefits.
+    It serves as a powerful tool for individuals to externalise and communicate their thoughts and
+    emotions, fostering self-awareness and emotional well-being. Artistic expression, including
+    drawing, has been linked to stress reduction, improved mood, and enhanced cognitive abilities.
+    In our rapidly advancing technological landscape, society is increasingly recognising the
+    importance of emotional well-being. The prevalence of stress, anxiety, and mental health issues
+    highlights the need for innovative approaches that leverage technology to enhance emotional
+    expression and self-awareness.
+  </p>
+  <br>
+  <br>
+  <p style="font-weight: bold;"> The benefits of collaborating with a robot on artistic creation.
+  </p>
+
+  <p style="font-weight: bold;">EXTERNAL INTERPRETATION:</p>
+  <p>A third-party artist (robot), with their unique learned perspective, can provide an external
+    interpretation of the individual’s emotional state. This can lead to unexpected insights and
+    representations that the individual might not have considered.</p>
+
+  <p style="font-weight: bold;">EMOTIONAL EXPRESSION BY PROXY</p>
+  <p>The commissioned artist (robot) acts as a medium for the emotional expression of the individual.
+    It allows the person to externalise and give form to their emotions through the eyes and hands of
+    the robot, potentially enhancing the depth and richness of the artistic expression.</p>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>
