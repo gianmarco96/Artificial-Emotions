@@ -8,8 +8,9 @@ client = OpenAI()
 
 app = Flask(__name__)
 
-img_folder_path = "C:\\Users\\amrcmeu\\Documents\\AE\\appScripts\\static\\imgs"
-json_foler_path = "C:\\Users\\amrcmeu\\Documents\\AE\\appScripts\\static\\json\\data.json"
+# Should eventually change to relative path
+img_folder_path = "C:\\Users\\me1gmp\\Documents\\GitHub\\Artificial-Emotions\\AE\\appScripts\\static\\imgs"
+json_foler_path = "C:\\Users\\me1gmp\\Documents\\GitHub\\Artificial-Emotions\\AE\\appScripts\\static\\json\\data.json"
 
 #client.api_key = 'your_openai_api_key'  # Replace this with your actual API key
 
@@ -58,7 +59,13 @@ def generate():
         
         # Count the number of items
         num_imgs = len(imgs) + 1
-        file_name = "img" + "_t" + str(num_imgs) + ".PNG"
+        if num_imgs > 99 and num_imgs < 1000 :
+            file_name = "img" + "_h" + str(num_imgs) + ".PNG"
+        elif num_imgs > 999:
+            file_name = "img" + "_t" + str(num_imgs) + ".PNG"
+        else:
+            file_name = "img_" + str(num_imgs) + ".PNG"
+        print(file_name)
 
         image_path = os.path.join(img_folder_path, file_name)
 
@@ -82,7 +89,7 @@ def generate():
         
     except Exception as e:
         print(e)
-        return 'Error generating image', 500
+        return str(e), 500
     # finally:
     #     return render_template('index.html', image_url=image_url)
 

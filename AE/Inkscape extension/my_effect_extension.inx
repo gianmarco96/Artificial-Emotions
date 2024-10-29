@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Auto Import Image</name>
+  <id>auto.import.image</id>
+  
+  <!-- <param name="directory" type="string" gui-text="Select the folder">Select the folder</param> -->
+  <param name="import-file" type="string" gui-text="Select the file">Enter the filename</param>
+
+  <!-- <label appearance="header">Stroke color for path based on number of nodes</label> -->
+
+  
+  <effect>
+      <object-type>all</object-type>
+      <effects-menu>
+          <submenu name="My Extensions"/>
+      </effects-menu>
+      
+  </effect>
+
+<script>      
+<command location="inx" interpreter="python">my_effect_extension.py</command>
+</script>
+      
+</inkscape-extension>
